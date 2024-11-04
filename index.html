@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penjumlahan Dua Angka</title>
+    <style>
+        /* Gaya umum */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #00aaff, #005f8d, #1e90ff); /* Gradient biru laut, biru tua, dan biru muda */
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8); /* Latar belakang putih transparan */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            width: 320px;
+            text-align: center;
+            box-sizing: border-box;
+            background-image: url('5f62ff087716bc48984078eca73bf844.gif');
+            background-size: cover;
+            background-repeat: no-repeat;
+            animation: puzzleIn 1s ease-out;
+        }
+
+        h2 {
+            color: white; /* Ubah warna teks menjadi putih */
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Tambahkan shadow pada teks */
+            position: relative;
+            display: inline-block;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        input[type="number"] {
+            width: calc(100% - 22px);
+            padding: 12px;
+            margin: 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+            outline: none; /* Menghilangkan outline pada input */
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="number"]:focus {
+            border-color: #64b5f6;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #42a5f5;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #1e88e5;
+        }
+
+        .result {
+            margin-top: 25px;
+            font-size: 20px;
+            font-weight: bold;
+            color: black; /* Ubah warna teks hasil menjadi hitam */
+            position: relative;
+            display: inline-block; /* Memungkinkan pseudo-element berfungsi dengan baik */
+            text-shadow: none; /* Menghilangkan shadow pada teks hasil */
+        }
+
+        /* Animasi puzzle untuk form */
+        @keyframes puzzleIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Notifikasi */
+        .notification {
+            background-color: #e3f2fd;
+            border: 1px solid #90caf9;
+            padding: 10px;
+            color: #1565c0;
+            border-radius: 5px;
+            margin-top: 15px;
+            display: none; /* Awalnya disembunyikan */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Penjumlahan Dua Angka</h2>
+        <div class="input-group">
+            <input type="number" id="angka1" placeholder="Masukkan angka pertama">
+        </div>
+        <div class="input-group">
+            <input type="number" id="angka2" placeholder="Masukkan angka kedua">
+        </div>
+        <button onclick="hitungPenjumlahan()">Hitung</button>
+        <div class="result" id="hasil"></div>
+        <div class="notification" id="notifikasi">Penjumlahan berhasil dihitung!</div>
+    </div>
+
+    <script>
+        function hitungPenjumlahan() {
+            const angka1 = parseFloat(document.getElementById('angka1').value);
+            const angka2 = parseFloat(document.getElementById('angka2').value);
+
+            if (isNaN(angka1) || isNaN(angka2)) {
+                alert("Mohon masukkan kedua angka.");
+                return;
+            }
+
+            const hasil = angka1 + angka2;
+
+            console.log("Angka pertama:", angka1);
+            console.log("Angka kedua:", angka2);
+            console.log("Hasil penjumlahan:", hasil);
+
+            document.getElementById('hasil').textContent = "Hasil: " + hasil;
+
+            // Tampilkan notifikasi
+            const notifikasi = document.getElementById('notifikasi');
+            notifikasi.style.display = "block";
+            setTimeout(() => {
+                notifikasi.style.display = "none";
+            }, 2000); // Notifikasi akan hilang setelah 2 detik
+        }
+    </script>
+</body>
+</html>
